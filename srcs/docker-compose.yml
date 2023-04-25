@@ -1,5 +1,29 @@
 services:
   nginx:
-    image: my_nginx:1
+    container_name: proxy
+    build:
+      context: requirements/nginx
+      dockerfile: Dockerfile
     ports:
       - 443:443
+    volumes:
+      - wp:/var/www/
+    networks:
+      - net
+  wordpress:
+    container_name: wp
+    build:
+      context: requirements/wordpress
+      dockerfile: Dockerfile
+    ports:
+      - 9000:9000
+    volumes:
+      - wp:/var/www
+    networks:
+      - net
+networks:
+  net:
+    driver: bridge
+volumes:
+  wp:
+    driver: local
