@@ -1,11 +1,22 @@
 services:
+  mariadb:
+    container_name: db
+    build:
+      context: requirements/mariadb
+      dockerfile: Dockerfile
+    ports:
+      - 3306:3306
+    networks:
+      - net
+    env_file:
+      - .env
   nginx:
     container_name: proxy
     build:
       context: requirements/nginx
       dockerfile: Dockerfile
     ports:
-      - 443:443
+      - 1234:443
     volumes:
       - wp:/var/www/
     networks:
