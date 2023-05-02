@@ -12,7 +12,8 @@ RUN mkdir -p /tmp
 COPY ./tools/entrypoint.sh /tmp/entrypoint.sh
 RUN chmod +x /tmp/entrypoint.sh
 
-RUN chown -R www-data /var/www
+RUN chown -R www-data /var/www/
+RUN chmod -R 755 /var/www/
 RUN chown -R www-data:www-data /var/log
 RUN chown -R www-data:www-data /run/php
 

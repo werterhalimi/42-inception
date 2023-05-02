@@ -10,17 +10,6 @@ services:
       - net
     env_file:
       - .env
-  nginx:
-    container_name: proxy
-    build:
-      context: requirements/nginx
-      dockerfile: Dockerfile
-    ports:
-      - 1234:443
-    volumes:
-      - wp:/home/www-data
-    networks:
-      - net
   wordpress:
     container_name: wp
     build:
@@ -29,7 +18,18 @@ services:
     ports:
       - 9000:9000
     volumes:
-      - wp:/home/www-data
+      - wp:/var/www
+    networks:
+      - net
+  nginx:
+    container_name: proxy
+    build:
+      context: requirements/nginx
+      dockerfile: Dockerfile
+    ports:
+      - 1234:443
+    volumes:
+      - wp:/var/www
     networks:
       - net
 networks:
