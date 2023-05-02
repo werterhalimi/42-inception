@@ -7,7 +7,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - db:/lib/mysql
+      - db:/var/lib/mysql
     networks:
       - net
     env_file:
@@ -40,5 +40,14 @@ networks:
 volumes:
   db:
     driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/shai/inception/srcs/data/db
   wp:
     driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/shai/inception/srcs/data/wp
+ 
