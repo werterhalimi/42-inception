@@ -6,6 +6,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - 3306:3306
+    volumes:
+      - db:/lib/mysql
     networks:
       - net
     env_file:
@@ -36,5 +38,7 @@ networks:
   net:
     driver: bridge
 volumes:
+  db:
+    driver: local
   wp:
     driver: local
