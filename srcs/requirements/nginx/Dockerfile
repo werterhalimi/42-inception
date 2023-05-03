@@ -1,4 +1,4 @@
-FROM debian
+FROM debian:bullseye
 
 EXPOSE 443
 RUN apt-get update && apt-get upgrade && apt-get install -y nginx openssl
@@ -9,4 +9,3 @@ COPY ./conf/default /etc/nginx/conf.d/default.conf
 RUN chown -R www-data /var/www/
 RUN chmod -R 755 /var/www/
 CMD ["nginx", "-g", "daemon off;"]
-

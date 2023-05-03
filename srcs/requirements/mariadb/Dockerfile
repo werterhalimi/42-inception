@@ -1,4 +1,4 @@
-FROM debian 
+FROM debian:bullseye 
 EXPOSE 3306
 RUN apt-get update &&  apt-get install mariadb-server -y
 RUN mkdir -p /tmp/
