@@ -1,0 +1,29 @@
+.score{
+    display: flex;
+    height: 2rem;
+    justify-content: space-between;
+    
+}
+
+.game{
+    background-color: black;
+    position: relative;
+
+}
+
+.player{
+    position: absolute;
+    min-height: 20%;
+    height: 20%;
+    min-width: 5%;
+    width: 5%;
+    background-color: white;
+}
+
+.ball{
+    position: relative;
+    border-radius: 90px;
+    height: 5%;
+    width: 5%;
+    background-color: red;
+}

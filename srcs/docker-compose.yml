@@ -1,9 +1,18 @@
 services:
+  adminer:
+    build:
+      context: requirements/bonus/adminer
+      dockerfile: Dockerfile
+    container_name: adminer
+    ports:
+      - 8080:8080
+    networks:
+      - net
+    volumes:
+      - adm:/usr/share/adminer
   mariadb:
     container_name: db
     build:
-      args:
-        progress: plain
       context: requirements/mariadb
       dockerfile: Dockerfile
     ports:
@@ -36,6 +45,7 @@ services:
       - 1234:443
     volumes:
       - wp:/var/www
+      - adm:/usr/share/adminer
     networks:
       - net
 networks:
@@ -43,6 +53,8 @@ networks:
     driver: bridge
 volumes:
   db:
+    driver: local
+  adm:
     driver: local
   wp:
     driver: local
