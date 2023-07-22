@@ -1,5 +1,6 @@
 services:
   adminer:
+    restart: always
     build:
       context: requirements/bonus/adminer
       dockerfile: Dockerfile
@@ -11,6 +12,7 @@ services:
     volumes:
       - adm:/usr/share/adminer
   mariadb:
+    restart: always
     container_name: db
     build:
       context: requirements/mariadb
@@ -24,6 +26,7 @@ services:
     env_file:
       - .env
   wordpress:
+    restart: always
     container_name: wp
     build:
       context: requirements/wordpress
@@ -37,6 +40,7 @@ services:
     env_file:
       - .env
   nginx:
+    restart: always
     container_name: proxy
     build:
       context: requirements/nginx
@@ -51,14 +55,23 @@ services:
 networks:
   net:
     driver: bridge
+
 volumes:
   db:
     driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./data/db 
   adm:
     driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./data/adm
   wp:
     driver: local
-#    driver_opts:
-#      type: none
-#      o: bind
-#      device: /home/shai/inception/srcs/data/wp 
+    driver_opts:
+      type: none
+      o: bind
+      device: ./data/wp 
