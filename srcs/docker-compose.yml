@@ -1,4 +1,18 @@
 services:
+  ftp:
+    build:
+      context: requirements/bonus/ftp
+      dockerfile: Dockerfile
+    container_name: ftp
+    ports:
+      - 20-21:20-21
+      - 10100-10110:10100-10110
+    env_file:
+      - .env
+    networks:
+      - net
+    volumes:
+      - wp:/var/www
   adminer:
     restart: always
     build:
@@ -59,19 +73,7 @@ networks:
 volumes:
   db:
     driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: ./data/db 
   adm:
     driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: ./data/adm
   wp:
     driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: ./data/wp 
