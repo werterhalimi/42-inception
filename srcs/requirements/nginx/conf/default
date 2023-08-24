@@ -16,6 +16,11 @@ server {
 
 		try_files $uri $uri/ =404;
 	}
+	
+	location /resume {
+		alias /var/www/resume/;
+		index index.html;
+    }
 
 	location /adminer {
 		proxy_pass http://adminer:8080;
