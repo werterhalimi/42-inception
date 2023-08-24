@@ -1,0 +1,26 @@
+.career-root {
+
+}
+
+.career-element{
+    position: relative;
+}
+
+.career-list {
+    display: flex;
+    border-left: 2px solid black;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 10px;
+}
+
+.career-list-marker {
+    position: absolute;
+    left: -18px;
+    top: 20px;
+}
+
+.career-title {
+    padding-left: 30px;
+    padding-right: 30px;
+}

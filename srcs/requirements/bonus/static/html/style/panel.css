@@ -1,0 +1,22 @@
+:root {
+    --main: #44777E;
+    --second: #FFFFFF;
+    --black: #333B4B;
+}
+
+.panel-root {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.left {
+    flex-basis: 25%;
+    background-color: var(--main);
+}
+
+
+.right {
+    background-color: var(--second);
+    flex-basis: 75%;
+}
