@@ -1,4 +1,15 @@
 services:
+  redis:
+    build:
+      context: requirements/bonus/redis
+      dockerfile: Dockerfile
+    container_name: redis
+    ports:
+      - 6379:6379
+    env_file:
+      - .env
+    networks:
+      - net
   ftp:
     build:
       context: requirements/bonus/ftp
