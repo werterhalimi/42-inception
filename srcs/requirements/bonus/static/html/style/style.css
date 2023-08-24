@@ -1,3 +1,10 @@
+:root {
+    --main: #44777E;
+    --second: #FFFFFF;
+    --black: #333B4B;
+    --light: #737373;
+}
+
 body {
     display: flex;
     flex-direction: row;
@@ -5,6 +12,44 @@ body {
     margin: 0;
     width: 100vw;
     height: 100vh;
+}
+
+* {
+    font-family: 'Lato', sans-serif;
+    padding: 0;
+}
+
+h1 {
+    font-size: 80px;
+    font-weight: 700;
+    margin: 0;
+}
+
+h2 {
+    font-size: 45px;
+    font-weight: 700;
+    margin: 0;
+}
+
+h3{
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--light);
+}
+
+p{
+    font-size: 30px;
+    font-weight: 400;
+    margin: 0;
+    color: var(--light);
+}
+
+p.thin {
+    font-size: 30px;
+    font-weight: 100;
+    margin: 0;
+    color: var(--light);
 }
 
 

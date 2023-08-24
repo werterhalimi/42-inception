@@ -1,9 +1,15 @@
 .career-root {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 30px;
 }
 
-.career-element{
+.career-element {
     position: relative;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
 }
 
 .career-list {
@@ -12,15 +18,25 @@
     flex-direction: column;
     align-items: flex-start;
     padding-left: 10px;
+    justify-content: space-between;
+    gap: 35px;
 }
 
 .career-list-marker {
     position: absolute;
     left: -18px;
-    top: 20px;
+    top: 4px;
 }
 
 .career-title {
     padding-left: 30px;
     padding-right: 30px;
+}
+
+.career-element-list {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    margin: 0;
+    padding-left: 10px;
 }

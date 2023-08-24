@@ -1,8 +1,4 @@
-:root {
-    --main: #44777E;
-    --second: #FFFFFF;
-    --black: #333B4B;
-}
+
 
 .panel-root {
     display: flex;
@@ -19,4 +15,9 @@
 .right {
     background-color: var(--second);
     flex-basis: 75%;
+    gap: 35px;
+}
+
+.title {
+    padding: 30px;
 }
