@@ -1,4 +1,4 @@
-FROM debian
+FROM debian:12
 
 RUN apt upgrade ; apt update ; apt install wget git -y
 RUN wget https://dl.gitea.com/gitea/1.20.3/gitea-1.20.3-linux-amd64 -O /usr/local/bin/gitea

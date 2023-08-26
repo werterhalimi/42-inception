@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:12
 ARG DO_HOST
 ARG DB_PREFIX
 ARG DB_NAME

@@ -1,4 +1,4 @@
-FROM debian:bullseye 
+FROM debian:12 
 RUN apt-get update &&  apt-get install mariadb-server -y
 RUN mkdir -p /tmp/
 COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf

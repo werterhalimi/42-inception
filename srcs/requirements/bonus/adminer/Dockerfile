@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:12
 
 RUN apt update && apt install adminer -y
 RUN apt update && apt upgrade && apt-get install curl -y && apt-get install php-fpm php-mysqli -y
