@@ -1,6 +1,7 @@
 name: inception
 services:
   gitea:
+    restart: always
     init: true
     build:
       context: requirements/bonus/gitea
@@ -14,6 +15,7 @@ services:
       - git:/home/git/
  
   redis:
+    restart: always
     init: true
     build:
       context: requirements/bonus/redis
@@ -24,6 +26,7 @@ services:
     networks:
       - net
   ftp:
+    restart: always
     init: true
     build:
       context: requirements/bonus/ftp
