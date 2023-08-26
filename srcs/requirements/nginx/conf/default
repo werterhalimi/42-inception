@@ -16,7 +16,26 @@ server {
 
 		try_files $uri $uri/ =404;
 	}
-	
+
+  	location /_/static/ {
+		alias /var/www/gitea-public/;
+    }
+
+	location /gitea/ {
+        client_max_body_size 512M;
+
+        # make nginx use unescaped URI, keep "%2F" as is
+        rewrite ^ $request_uri;
+        rewrite ^/gitea(/.*) $1 break;
+        proxy_pass http://gitea:3000;
+
+        # other common HTTP headers, see the "Nginx" config section above
+		proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
 	location /resume {
 		alias /var/www/resume/;
 		index index.html;

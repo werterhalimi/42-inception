@@ -1,12 +1,23 @@
 services:
+  gitea:
+    init: true
+    build:
+      context: requirements/bonus/gitea
+      dockerfile: Dockerfile
+    container_name: gitea
+    env_file:
+      - .env
+    networks:
+      - net
+    volumes:
+      - git:/home/git/
+ 
   redis:
     init: true
     build:
       context: requirements/bonus/redis
       dockerfile: Dockerfile
     container_name: redis
-    ports:
-      - 6379:6379
     env_file:
       - .env
     networks:
@@ -33,8 +44,6 @@ services:
       context: requirements/bonus/adminer
       dockerfile: Dockerfile
     container_name: adminer
-    ports:
-      - 8080:8080
     networks:
       - net
     volumes:
@@ -46,8 +55,6 @@ services:
     build:
       context: requirements/mariadb
       dockerfile: Dockerfile
-    ports:
-      - 3306:3306
     volumes:
       - db:/var/lib/mysql
     networks:
@@ -61,8 +68,6 @@ services:
     build:
       context: requirements/wordpress
       dockerfile: Dockerfile
-    ports:
-      - 9000:9000
     volumes:
       - wp:/var/www
     networks:
@@ -81,6 +86,7 @@ services:
     volumes:
       - wp:/var/www
       - adm:/usr/share/adminer
+      - git:/home/git/gitea-public
     networks:
       - net
 networks:
@@ -93,4 +99,6 @@ volumes:
   adm:
     driver: local
   wp:
+    driver: local
+  git:
     driver: local

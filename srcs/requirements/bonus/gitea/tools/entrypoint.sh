@@ -1,0 +1,3 @@
+echo "DOMAIN = $DOMAIN" >> /etc/gitea/app.ini
+echo "ROOT_URL = https://$DOMAIN/gitea" >> /etc/gitea/app.ini
+/usr/local/bin/gitea web --config /etc/gitea/app.ini
