@@ -19,3 +19,5 @@ down:
 
 rmvol:	down
 	 docker volume rm $(VOLUMES)
+
+.PHONY: all build re up down rmvol
