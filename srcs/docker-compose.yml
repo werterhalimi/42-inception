@@ -1,6 +1,8 @@
 name: inception
 services:
   gitea:
+    depends_on:
+      - mariadb
     restart: always
     init: true
     build:
@@ -40,7 +42,7 @@ services:
     networks:
       - net
     volumes:
-      - wp:/var/www
+      - wp:/var/www/wordpress
   adminer:
     init: true
     restart: always
@@ -67,13 +69,18 @@ services:
       - .env
   wordpress:
     init: true
+    depends_on:
+      - mariadb
+      - redis
     restart: always
     container_name: wp
+    ports:
+      - 9000:9000
     build:
       context: requirements/wordpress
       dockerfile: Dockerfile
     volumes:
-      - wp:/var/www
+      - wp:/var/www/wordpress
     networks:
       - net
     env_file:
@@ -88,7 +95,7 @@ services:
     ports:
       - 443:443
     volumes:
-      - wp:/var/www
+      - wp:/var/www/wordpress
       - adm:/usr/share/adminer
       - git:/home/git/gitea-public
     networks:

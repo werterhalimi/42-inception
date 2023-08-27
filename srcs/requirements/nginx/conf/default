@@ -9,13 +9,20 @@ server {
     ssl_prefer_server_ciphers on;
 
 	server_name shalimi.42.fr;
+
 	location / {
-
-		root /var/www/;
-		index index.php index.html index.htm;
-
+		root /var/www/wordpress/;
+		index index.php index.html;
 		try_files $uri $uri/ =404;
 	}
+
+	location ~ \.php$ {
+		root /var/www/wordpress/;
+		index index.php index.html;
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass wordpress:9000;
+	}
+
 
   	location /_/static/ {
 		alias /var/www/gitea-public/;
@@ -43,14 +50,6 @@ server {
 
 	location /adminer {
 		proxy_pass http://adminer:8080;
-	}
-
-	location ~ \.php$ {
-		root /var/www/;
-		index index.php index.html index.htm;
-
-		include snippets/fastcgi-php.conf;
-		fastcgi_pass wordpress:9000;
 	}
 	location ~ /\.ht {
 		deny all;
