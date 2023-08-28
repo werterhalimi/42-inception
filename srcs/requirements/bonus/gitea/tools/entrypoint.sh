@@ -1,1 +1,1 @@
-echo "[server]" >> /etc/gitea/app.ini ; echo "DOMAIN = $DOMAIN" >> /etc/gitea/app.ini ; echo "ROOT_URL = https://$DOMAIN/gitea/" >> /etc/gitea/app.ini ; /usr/local/bin/gitea web --config /etc/gitea/app.ini
+echo "[server]" >> /etc/gitea/app.ini ; echo "DOMAIN = $DOMAIN" >> /etc/gitea/app.ini ; echo "ROOT_URL = https://$DOMAIN:4443/" >> /etc/gitea/app.ini ; /usr/local/bin/gitea cert -ca=true -duration=8760h0m0s -host=shalimi.42.fr ; /usr/local/bin/gitea web --config /etc/gitea/app.ini
