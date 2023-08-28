@@ -108,9 +108,25 @@ networks:
 volumes:
   db:
     driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ~/data/db
   adm:
     driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ~/data/adm
   wp:
     driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ~/data/wp
   git:
     driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ~/data/git
