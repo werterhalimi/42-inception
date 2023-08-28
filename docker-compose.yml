@@ -6,7 +6,7 @@ services:
     restart: always
     init: true
     build:
-      context: requirements/bonus/gitea
+      context: srcs/requirements/bonus/gitea
       dockerfile: Dockerfile
     container_name: gitea
     env_file:
@@ -20,7 +20,7 @@ services:
     restart: always
     init: true
     build:
-      context: requirements/bonus/redis
+      context: srcs/requirements/bonus/redis
       dockerfile: Dockerfile
     container_name: redis
     env_file:
@@ -31,7 +31,7 @@ services:
     restart: always
     init: true
     build:
-      context: requirements/bonus/ftp
+      context: srcs/requirements/bonus/ftp
       dockerfile: Dockerfile
     container_name: ftp
     ports:
@@ -47,7 +47,7 @@ services:
     init: true
     restart: always
     build:
-      context: requirements/bonus/adminer
+      context: srcs/requirements/bonus/adminer
       dockerfile: Dockerfile
     container_name: adminer
     networks:
@@ -59,7 +59,7 @@ services:
     restart: always
     container_name: db
     build:
-      context: requirements/mariadb
+      context: srcs/requirements/mariadb
       dockerfile: Dockerfile
     volumes:
       - db:/var/lib/mysql
@@ -77,7 +77,7 @@ services:
     ports:
       - 9000:9000
     build:
-      context: requirements/wordpress
+      context: srcs/requirements/wordpress
       dockerfile: Dockerfile
     volumes:
       - wp:/var/www/wordpress
@@ -90,7 +90,7 @@ services:
     restart: always
     container_name: proxy
     build:
-      context: requirements/nginx
+      context: srcs/requirements/nginx
       dockerfile: Dockerfile
     ports:
       - 443:443
