@@ -6,4 +6,3 @@ echo "CHPASSWD:"
 echo "$WP_ADMIN:$WP_PASS" | /usr/sbin/chpasswd
 echo "VSFTPD:"
 vsftpd
-tail -f /dev/null

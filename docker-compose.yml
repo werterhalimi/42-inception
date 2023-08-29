@@ -76,8 +76,6 @@ services:
       - redis
     restart: always
     container_name: wp
-    ports:
-      - 9000:9000
     build:
       context: srcs/requirements/wordpress
       dockerfile: Dockerfile

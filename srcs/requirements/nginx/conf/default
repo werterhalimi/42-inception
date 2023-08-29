@@ -22,6 +22,10 @@ server {
 		include snippets/fastcgi-php.conf;
 		fastcgi_pass wordpress:9000;
 	}
+	
+	location /gitea {
+		proxy_pass https://shalimi.42.fr:4443;
+	}
 
 	location /resume {
 		alias /var/www/resume/;
